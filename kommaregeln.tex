@@ -1,0 +1,325 @@
+% XeTeX
+
+\documentclass[landscape]{article}
+
+% paper geometry
+\usepackage[landscape]{geometry}
+\geometry{
+    a4paper,
+    total={210mm,297mm},
+    left=15mm,
+    right=15mm,
+    top=15mm,
+    bottom=20mm
+}
+
+% header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[LO, RE] {Kommaregeln}
+\fancyfoot[C]{-\,\thepage\,-}
+
+% including images
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+% columns
+\usepackage{multicol}
+\columnseprule0.5pt
+\columnsep5mm
+
+% german spelling
+\usepackage{fontspec}
+\usepackage{polyglossia}
+%\usepackage[ngerman]{babel}
+\setdefaultlanguage{german}
+
+% subsubsection spacing
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{1em}{0.4em}
+\titlespacing*{\subsection}{0pt}{1em}{0.4em}
+\titlespacing*{\subsubsection}{0pt}{1em}{0.4em}
+
+% paragraph title format
+%\titleformat{\paragraph}{\normalfont\scshape}{\theparagraph}{}{}
+%\titlespacing*{\paragraph}{0pt}{1em}{0.2em}
+
+% referencing section names
+\usepackage{hyperref}
+\makeatletter
+\def\ttl@useclass#1#2{%
+  \@ifstar
+    {\ttl@labelfalse\@dblarg{#1{#2}}}% {\ttl@labelfalse#1{#2}[]}%
+    {\ttl@labeltrue\@dblarg{#1{#2}}}}
+\makeatother
+
+% own reference command
+\newcommand{\ownref}[1]{(siehe: \nameref{#1}, S. \pageref{#1})}
+
+% tiny break
+\newcommand{\tbreak}{\\\vspace{-3mm}}
+
+% german quotation marks
+\newcommand*\glqq{„}
+\newcommand*\grqq{“}
+\newcommand{\gqm}[1]{\glqq #1\grqq}
+
+% z.B.
+\newcommand{\zB}{z.\,B.}
+
+% turnoff automatic indentation
+\setlength{\parindent}{0pt}
+
+% enumerate
+%\usepackage{enumerate,letltxmacro}
+%\LetLtxMacro\itemold\item
+%\renewcommand{\item}{\itemindent-2mm\itemold}
+
+\usepackage{enumitem}
+\setlist[itemize]{
+    labelsep=0.3em,
+    labelindent=0.5\parindent,
+    itemindent=0pt,
+    itemsep=-0.3em, 
+    leftmargin=*,
+    before=\vspace{-6mm},
+    after=\vspace{-3mm}
+}
+
+\setlist[enumerate]{
+    labelsep=0.3em,
+    labelindent=0.5\parindent,
+    itemindent=0pt,
+    itemsep=-0.3em, 
+    leftmargin=*,
+    before=\vspace{-6mm},
+    after=\vspace{-3mm}
+}
+
+
+\begin{document}
+\begin{multicols*}{3}
+
+    \section*{Kommaregeln}
+
+    \textbf{1. Das Komma steht zwischen Aufzählungen gleichartiger Satzglieder.}\tbreak
+
+    \textsc{Beispiele}\\
+
+    \begin{itemize}
+        \item Meine Freundin ist ein hübsches, liebneswertes, intelligentes Mädchen.
+        \item Sie liebt Musik, schicke Kleider \textit{und} schnelle Autos. {\footnotesize (Hier hat \gqm{und} das Komma ersetzt)}
+    \end{itemize}
+
+    \textsc{Beachte}\tbreak
+
+    Das Komma wird ersetzt durch die Wörter:\\
+    und, oder, sowie, wie, beziehungsweise / bzw., \mbox{sowohl \dots\, als auch}, \mbox{entweder \dots\, oder}, \mbox{weder \dots\, noch}\\
+
+    \textbf{2. Das Komma steht vor entgegengesetzten Konjunktionen}\tbreak
+
+    \zB: aber, sondern, allein, doch, jedoch, vielmehr\tbreak
+
+    \textsc{Beispiele}\\
+    
+    \begin{itemize}
+        \item Ihr Vater war ein grober, aber gutmütiger Kerl.
+        \item Nicht nur seine Hände, sondern auch seine Füße waren rießig.
+    \end{itemize}\quad\tbreak
+
+    \textbf{3. Das Komma steht nach Anreden}\tbreak
+
+    Eingeschobene Anreden, werden durch ein Komma davor und danach abgegrenzt.\tbreak
+
+    \textsc{Beispiele}\\
+
+    \begin{itemize}
+        \item Herr Lehrer, ich bin gut vorbereitet!
+        \item Lieber Michael, ich schreibe dir \dots
+        \item Dir, lieber Vater, gratuliere ich \dots\, {\footnotesize(eingschoben)}
+        \item Ich beglückwünsche dich, lieber Hans-Peter, zur bestandenen Prüfung. {\footnotesize(eingschoben)}
+    \end{itemize}\quad\tbreak
+
+    \textbf{4. Das Komma steht nach Empfindungswörtern, wenn sie hervorgehoben werden}\tbreak
+    
+    \textsc{Beispiele}\\
+
+    \begin{itemize}
+        \item Oh je, war das eine Arbeit!
+        \item Verflixt, schon wieder eine Sechs!
+        \item Aua, du tust mir weh!
+    \end{itemize}
+
+    \textsc{Beachte}\tbreak
+
+    Ohne Hervorhebung steht kein Komma, \zB:\\ 
+    Ach lass mich in Ruhe! Oh wenn sie doch käme!\\
+
+    \textbf{5. Das Komma schließt Appositionen ein}\tbreak
+
+    \textsc{Beispiele}\\
+
+    \begin{itemize}
+        \item Der Direktor, ein alter Fuchs, lächelte.
+        \item Frau Müller, die Schulsekretärin, ist immer bestens informiert.
+    \end{itemize}\quad\tbreak
+
+    \textbf{6. Das Komma schließt Erläuterungen ein, die durch \gqm{d.\,h.}, \gqm{nämlich}, \gqm{\zB}, \gqm{wie}, \gqm{und zwar} eingeleitet werden}\tbreak
+
+    \textsc{Beispiele}\\
+
+    \begin{itemize}
+        \item An einem Tag war der Biologieunterricht besonders interessant, nämlich am Freitag.
+        \item Bestimmte Themen, \zB\, Balzverhalten und Fortpflanzung, interessieren uns besonders.
+    \end{itemize}\quad\tbreak
+
+    \textbf{7. In Satzreihen werden Hauptsätze durch Kommata getrennt} (1)\tbreak
+
+    Das Komma steht auch, wenn ein Hauptsatz in einen anderen eingeschoben wird. (2)\\
+    Werden zwei vollständige Hauptsätze durch \gqm{und} bzw. \gqm{oder} verbunden, \textit{kann} das Komma stehen. (3) und (4)\tbreak
+
+    \textsc{Beispiele}\\
+
+    \begin{enumerate}[label=(\arabic*)]
+        \item Er rannte in den Klassenraum, er sah sich um, er handelte.
+        \item Du kannst, ich betone es noch einmal, nicht an dieser Schule bleiben
+        \item Er rief den Schüler zu sich, und dieser nahm sein Zeugnis entgegen.
+        \item Er rief den Schüler zu sich und dieser nahm sein Zeugnis entgegen.
+    \end{enumerate}\quad\tbreak
+
+    \textbf{8. Das Komma steht zwischen Satzteilen, die durch anreihende Konjunktionen in der Art einer Aufzählung verbunden sind}\tbreak
+
+    \zB\, \mbox{bald -- bald}, \mbox{einerseits -- andererseits}, \mbox{teils -- teils}, \mbox{je -- desto}, \mbox{ob -- ob}, \mbox{halb -- halb}, \mbox{nicht nur -- sondern auch}\tbreak
+
+    \textsc{Beispiele}\\
+   
+    \begin{itemize}
+        \item Einerseits verhält sich Susi noch wie ein kleines Mädchen, andererseites möchte sie gern schon erwachsen sein.     
+        \item Teils spielt sie mit ihren alten Puppen, teils schminkt sich sich wie ein Model.
+        \item Ob sie mit Puppen spielt, ob sie sich schminkt -- süß ist sie allemal.
+    \end{itemize}\quad\tbreak
+
+    \textbf{9. Das Komma trennt den Nebensatz vom übergeordneten Hauptsatz ab}\\
+    \begin{enumerate}[label=(\alph*)]
+        \item Kausal-, Temporal-, Konditional-, Konzessiv-, Konsekutiv- , Final- und Modalsatz\\
+            \textsc{Beispiele}\\
+
+            \begin{itemize}
+                \item Weil es klingelt, gehen die Schüler in ihren Klassenraum.
+                \item Die Schüler gehen in ihren Klassenraum, weil es klingelt.
+                \item Die Schühler gehen, weil es klingelt, in ihren Klassenraum.
+            \end{itemize}\quad\vspace{-4mm}
+
+        \item indirekter Fragesatz\\
+            \textsc{Beispiele}\\
+
+            \begin{itemize}
+                \item Niemand wusste, wann die nächste Klassenarbeit geschrieben werden sollte.
+                \item Wann die nächste Klassenarbeit geschrieben werden sollte, wusste niemand.
+            \end{itemize}\quad\vspace{-4mm}
+
+        \item Relativsatz\\
+            \textsc{Beispiele}\\
+
+            \begin{itemize}
+                \item Die junge Dame, die du vorstellen willst, kenne ich schon.
+                \item Ich kenne die junge Dame, die du mir vorstellen willst.
+            \end{itemize}
+    \end{enumerate}\quad\tbreak
+
+    \textbf{10. Das Komma steht zwischen Aufzählungen gleichartiger Nebensätze, wenn diese nicht durch \gqm{und} bzw. \gqm{oder} verbunden sind.}\tbreak
+        
+    \textsc{Beispiel}\\
+    Weil sie hübsch ist, weil sie mich liebt \textit{und} weil sie zudem einen reichen Vater hat, werde ich sie heiraten.\\
+
+    \textbf{11. Das Komma steht nach herausgehobenen Satzteilen, die durch ein Pronomen oder Adverb erneut aufgenommen werden}\tbreak
+
+    \textsc{Beispiele}\\
+
+    \begin{itemize}
+        \item Deine Schwester, die habe ich gut gekannt.
+        \item In meiner Studentenbude, da haben wir uns oft geküsst.
+    \end{itemize}\quad\tbreak
+
+    \textbf{12. Erweiterte Infinitive grenzt man durch Kommata ab, wenn}\\
+
+    \begin{enumerate}[label=(\alph*)]
+        \item die Infinitvgruppe durch \gqm{um}, \gqm{ohne}, \gqm{statt}, \gqm{anstatt}, \gqm{außer}, \gqm{als} eingeleitet wird.\\
+            \textsc{Beispiele}\\
+
+            \begin{itemize}
+                \item Sie gab mir einen Kuss, \textit{um} mich damit um Verzeihung zu bitten.
+                \item Er fuhr los, \textit{ohne} auf die rote Ampel zu achten.
+                \item Ihr fiel nichts Besseres ein, \textit{als} zu lügen.
+            \end{itemize}\quad\vspace{-4mm}
+
+        \item die Infinitivgruppe von einem Substantiv abhängt.\\
+            \textsc{Beispiele}\\
+
+            \begin{itemize}
+                \item Ihm wurde bei dem \textit{Gedanken}, morgen eine Klassenarbeit \textit{zu schreiben}, heiß und kalt.
+                \item Er wurde bei dem \textit{Versuch}, das Geld \textit{zu stehlen}, vom Klassenlehrer beobachtet.
+                \item Sie fasste den \textit{Plan}, heimlich \textit{abzureisen}.
+            \end{itemize}\quad\vspace{-4mm}
+
+        \item die Infinitivgruppe von einem Verweiswort abhängt.\\
+            \textsc{Beispiele}\\
+
+            \begin{itemize}
+                \item Peter liebt \textit{es}, abends in einem Buch zu lesen.
+                \item \textit{Es} gefällt mir, wie du dich anziehst.
+                \item Herbert hat \textit{es} nie versäumt, mir zum Geburtstag zu gratulieren.
+            \end{itemize}
+    \end{enumerate}\quad\tbreak
+
+    \textbf{13. Das Komma kann das erweiterte Partizip vom Satz trennen. Ist das erweiterte Partizip in den Satz eingeschoben oder nachgestellt, muss es durch Kommata abgetrennt werden.}\tbreak
+    
+    \textsc{Beispiel}\\
+
+    \begin{itemize}
+        \item Vor Angst zitternd, stand der Übeltäter da.
+        \item Vor Angst zitternd stand der Übertäter da.
+    \end{itemize}\quad\vspace{-4mm}
+
+    \textsc{Beachte}\\
+    
+    \begin{itemize}
+        \item Der Direktor, verägert durch den Lärm, eilte herbei.
+        \item Die Sportler standen in der Halle, in Reih und Glied angetreten.
+    \end{itemize}\quad\tbreak
+
+    \textbf{14. Das Komma trennt zwei ungebeugte Partizipien vom Satz, wenn diese durch \gqm{und} verbunden sind}\tbreak
+
+    \textsc{Beispiele}\\
+
+    \begin{itemize}
+        \item Der Deutschlehrer, geachtet und geliebt, betrat den Klassenraum.
+        \item Die Schüler, ächzend und stöhnend, schrieben eine Klassenarbeit.
+    \end{itemize}\quad\tbreak
+
+    \textbf{15. Das Komma trennt zwei nachgestellte Adjektive vom Satz, wenn diese durch \gqm{und} verbunden sind}\tbreak
+
+    \textsc{Beispiele}\\
+
+    \begin{itemize}
+        \item Alle Schüler, große und kleine, fürchten sich vor einer Sechs.
+        \item Die Sonne, hell und klar, ging über ihnen auf.
+    \end{itemize}\quad\tbreak
+
+    \textbf{16. Das Komma gliedert mehrteilige Datums- und Zeitangaben}\tbreak
+
+    \textsc{Beispiele}\\
+    \begin{itemize} 
+        \item Tübingen, den 28. Mai 2016
+        \item Uppsala, im Februar 2016
+        \item Ich komme am Samstag, den 12. Dezember, (um) 18.30 am Stuttgarter Hauptbahnhof an.
+    \end{itemize}
+
+    \section*{Quelle}
+    Udo Klinger, \url{http://www.udoklinger.de/Deutsch/Grammatik/Kommaregeln.htm}, Schwerte/Ruhr 2012
+
+
+\end{multicols*}
+\end{document}
